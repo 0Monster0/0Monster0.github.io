@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="python,算法,leetcode,二叉树," />
+  <meta name="keywords" content="cookie,session,http," />
 
 
 
@@ -125,18 +125,18 @@
 
 
 
-<meta name="description" content="二叉树​        二叉树是一个连通的无环图，并且每一个顶点的度不大于3。有根二叉树还要满足根结点的度不大于2。有了根结点之后，每个顶点定义了唯一的父结点，和最多2个子结点。然而，没有足够的信息来区分左结点和右结点。如果不考虑连通性，允许图中有多个连通分量，这样的结构叫做森林。 平衡二叉树​        平衡二叉搜索树（Self-balancing binary search tree）又被">
-<meta name="keywords" content="python,算法,leetcode,二叉树">
+<meta name="description" content="一、Cookie机制​     Cookies是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。IETF RFC 2965 HTTP State Management Mechanism 是通用cookie规范。网络服务器用HTTP头向客户端发送Cookies，在客户终端，浏览器解析这些Cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些Cookies">
+<meta name="keywords" content="cookie,session,http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 笔记 110 - Balanced Binary Tree">
-<meta property="og:url" content="http://yoursite.com/2018/05/09/平衡二叉树/index.html">
+<meta property="og:title" content="Cookie与Session介绍与区别">
+<meta property="og:url" content="http://yoursite.com/2018/05/10/Cookie与Session介绍与区别/index.html">
 <meta property="og:site_name" content="Yvan blog">
-<meta property="og:description" content="二叉树​        二叉树是一个连通的无环图，并且每一个顶点的度不大于3。有根二叉树还要满足根结点的度不大于2。有了根结点之后，每个顶点定义了唯一的父结点，和最多2个子结点。然而，没有足够的信息来区分左结点和右结点。如果不考虑连通性，允许图中有多个连通分量，这样的结构叫做森林。 平衡二叉树​        平衡二叉搜索树（Self-balancing binary search tree）又被">
+<meta property="og:description" content="一、Cookie机制​     Cookies是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。IETF RFC 2965 HTTP State Management Mechanism 是通用cookie规范。网络服务器用HTTP头向客户端发送Cookies，在客户终端，浏览器解析这些Cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些Cookies">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T08:11:37.900Z">
+<meta property="og:updated_time" content="2018-05-10T08:20:29.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 笔记 110 - Balanced Binary Tree">
-<meta name="twitter:description" content="二叉树​        二叉树是一个连通的无环图，并且每一个顶点的度不大于3。有根二叉树还要满足根结点的度不大于2。有了根结点之后，每个顶点定义了唯一的父结点，和最多2个子结点。然而，没有足够的信息来区分左结点和右结点。如果不考虑连通性，允许图中有多个连通分量，这样的结构叫做森林。 平衡二叉树​        平衡二叉搜索树（Self-balancing binary search tree）又被">
+<meta name="twitter:title" content="Cookie与Session介绍与区别">
+<meta name="twitter:description" content="一、Cookie机制​     Cookies是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。IETF RFC 2965 HTTP State Management Mechanism 是通用cookie规范。网络服务器用HTTP头向客户端发送Cookies，在客户终端，浏览器解析这些Cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些Cookies">
 
 
 
@@ -166,13 +166,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/09/平衡二叉树/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/10/Cookie与Session介绍与区别/"/>
 
 
 
 
 
-  <title>Leetcode 笔记 110 - Balanced Binary Tree | Yvan blog</title>
+  <title>Cookie与Session介绍与区别 | Yvan blog</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/平衡二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/10/Cookie与Session介绍与区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yvan Chen">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 笔记 110 - Balanced Binary Tree</h1>
+          <h1 class="post-title" itemprop="name headline">Cookie与Session介绍与区别</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T15:17:15+08:00">
-                2018-05-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T16:07:22+08:00">
+                2018-05-10
               </time>
             
 
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2018/05/09/平衡二叉树/" class="leancloud_visitors" data-flag-title="Leetcode 笔记 110 - Balanced Binary Tree">
+             <span id="/2018/05/10/Cookie与Session介绍与区别/" class="leancloud_visitors" data-flag-title="Cookie与Session介绍与区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -410,24 +410,42 @@
       
 
       
-        <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a><a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8F%89%E6%A0%91/1602879?fr=aladdin" target="_blank" rel="noopener">二叉树</a></h2><p>​        二叉树是一个连通的无环图，并且每一个顶点的度不大于3。有根二叉树还要满足根结点的度不大于2。有了根结点之后，每个顶点定义了唯一的父结点，和最多2个子结点。然而，没有足够的信息来区分左结点和右结点。如果不考虑连通性，允许图中有多个连通分量，这样的结构叫做森林。</p>
-<h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a><a href="https://baike.baidu.com/item/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/10421057" target="_blank" rel="noopener">平衡二叉树</a></h3><p>​        平衡二叉搜索树（Self-balancing binary search tree）又被称为AVL树（有别于AVL算法），且具有以下性质：它是一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。平衡二叉树的常用实现方法有<a href="https://baike.baidu.com/item/%E7%BA%A2%E9%BB%91%E6%A0%91" target="_blank" rel="noopener">红黑树</a>、<a href="https://baike.baidu.com/item/AVL/7543015" target="_blank" rel="noopener">AVL</a>、<a href="https://baike.baidu.com/item/%E6%9B%BF%E7%BD%AA%E7%BE%8A%E6%A0%91" target="_blank" rel="noopener">替罪羊树</a>、<a href="https://baike.baidu.com/item/Treap" target="_blank" rel="noopener">Treap</a>、<a href="https://baike.baidu.com/item/%E4%BC%B8%E5%B1%95%E6%A0%91" target="_blank" rel="noopener">伸展树</a>等。 最小二叉平衡树的节点的公式如下 F(n)=F(n-1)+F(n-2)+1 这个类似于一个递归的<a href="https://baike.baidu.com/item/%E6%95%B0%E5%88%97" target="_blank" rel="noopener">数列</a>，可以参考Fibonacci(斐波那契)数列，1是根节点，F(n-1)是左子树的节点数量，F(n-2)是右子树的节点数量。</p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>题目链接：<a href="https://oj.leetcode.com/problems/balanced-binary-tree/" target="_blank" rel="noopener">Balanced Binary Tree | LeetCode OJ</a></p>
-<p>给定一个二叉树，判断它是否是高度平衡的二叉树。</p>
-<p>本题中，一棵高度平衡二叉树定义为：</p>
-<blockquote>
-<p>一个二叉树<em>每个节点</em> 的左右两个子树的高度差的绝对值不超过1。</p>
-</blockquote>
-<p><strong>示例 1:</strong></p>
-<p>给定二叉树 <code>[3,9,20,null,null,15,7]</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
-<p>返回 <code>true</code> 。<br><strong>示例 2:</strong></p>
-<p>给定二叉树 <code>[1,2,2,3,3,null,null,4,4]</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      1</span><br><span class="line">     / \</span><br><span class="line">    2   2</span><br><span class="line">   / \</span><br><span class="line">  3   3</span><br><span class="line"> / \</span><br><span class="line">4   4</span><br></pre></td></tr></table></figure>
-<p>返回 <code>false</code> 。</p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>​        同样是很基础的深度优先遍历题目，只要在遍历时取得左右子树的深度，对比是否相差超过1就可以得出结果，需要考虑的技巧是怎么在发现不平衡之后，最迅速的返回结果，不做多余的计算。</p>
-<p>​        有可能出现的问题是先写一个Helper方法获得结点到最下层叶子结点的深度，然后在深度优先遍历中每次调用这个方法来对比深度。这是不必要的，获取深度本身就是用深度优先遍历实现的，一边遍历一边计算深度就OK。</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isBalanced</span><span class="params">(self, root)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> abs(self.depth(root.left) - self.depth(root.right)) &gt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.isBalanced(root.left) <span class="keyword">and</span> self.isBalanced(root.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">depth</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        </span><br><span class="line">    	<span class="keyword">if</span> root <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    	<span class="keyword">if</span> root.left <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">and</span> root.right <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    	<span class="keyword">elif</span> root.left <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        	<span class="keyword">return</span> self.depth(root.left) + <span class="number">1</span></span><br><span class="line">    	<span class="keyword">elif</span> root.right <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        	<span class="keyword">return</span> self.depth(root.right) + <span class="number">1</span></span><br><span class="line">    	<span class="keyword">else</span>:</span><br><span class="line">        	<span class="keyword">return</span> max(self.depth(root.left), self.depth(root.right)) + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+        <h3 id="一、Cookie机制"><a href="#一、Cookie机制" class="headerlink" title="一、Cookie机制"></a>一、Cookie机制</h3><p>​     <strong>Cookies</strong>是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。IETF RFC 2965 HTTP State Management Mechanism 是通用cookie规范。网络服务器用HTTP头向客户端发送Cookies，在客户终端，浏览器解析这些Cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些Cookies。</p>
+<p>​     具体来说Cookie机制采用的是在客户端保持状态的方案。它是在用户端的会话状态的存贮机制，他需要用户打开客户端的Cookie支持。Cookie的作用就是为了解决HTTP协议无状态的缺陷所作的努力。（HTTP无状态协议是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。）</p>
+<p>​     正统的Cookie分发是通过扩展HTTP协议来实现的，服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的Cookie。然而纯粹的客户端脚本如JavaScript也可以生成Cookie。而Cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的Cookie，如果某个Cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该Cookie附在请求资源的HTTP请求头上发送给服务器。</p>
+<p>​     Cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。若不设置过期时间，则表示这个Cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。这种生命期为浏览器会话期的Cookie被称为会话Cookie。会话Cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。若设置了过期时间，浏览器就会把Cookie保存到硬盘上，关闭后再次打开浏览器，这些Cookie仍然有效直到超过设定的过期时间。存储在硬盘上的Cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。</p>
+<p>​     而Session机制采用的是一种在服务器端保持状态的解决方案。同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以Session机制可能需要借助于Cookie机制来达到保存标识的目的。而Session提供了方便管理全局变量的方式。</p>
+<p>​     Session是针对每一个用户的，变量的值保存在服务器上，用一个Session ID来区分是哪个用户Session变量,这个值是通过用户的浏览器在访问的时候返回给服务器，当客户禁用Cookie时，这个值也可能设置为由get来返回给服务器。</p>
+<p>​     就安全性来说：当你访问一个使用Session 的站点，同时在自己机子上建立一个Cookie，建议在服务器端的Session机制更安全些，因为它不会任意读取客户存储的信息。</p>
+<h3 id="二、Session机制"><a href="#二、Session机制" class="headerlink" title="二、Session机制"></a>二、Session机制</h3><p>​     <strong>Session</strong>机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。</p>
+<p>​     当程序需要为某个客户端的请求创建一个Session时，服务器首先检查这个客户端的请求里是否已包含了一个Session标识（称为Session id），如果已包含则说明以前已经为此客户端创建过Session，服务器就按照Session id把这个session检索出来使用，如果客户端请求不包含Session id，则为此客户端创建一个Session并且生成一个与此Session相关联的Session id，Session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。</p>
+<p>​     保存这个Session id的方式可以采用Cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发挥给服务器。一般这个Cookie的名字都是类似于SEEESIONID。但Cookie可以被人为的禁止，则必须有其他机制以便在Cookie被禁止时仍然能够把Session id传递回服务器。</p>
+<p>​     经常使用的一种技术叫URL重写，就是把Session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把Session id传递回服务器。</p>
+<p>​     Cookie与Session都能够进行会话跟踪，但是完成的原理不太一样。普通状况下二者均能够满足需求，但有时候不能够运用Cookie，有时候不能够运用Session。下面经过比拟阐明二者的特性以及适用的场所。</p>
+<h3 id="三、Cookie与Session的区别："><a href="#三、Cookie与Session的区别：" class="headerlink" title="三、Cookie与Session的区别："></a>三、Cookie与Session的区别：</h3><p>​     <strong>①存取方式的不同（Cookie只能保存ASCII，Session可以存任意数据类型）</strong></p>
+<p>​     Cookie中只能保管ASCII字符串，假如需求存取Unicode字符或者二进制数据，需求先进行编码。Cookie中也不能直接存取Java对象。若要存储略微复杂的信息，运用Cookie是比拟艰难的。</p>
+<p>​     而Session中能够存取任何类型的数据，包括而不限于String、Integer、List、Map等。Session中也能够直接保管Java Bean乃至任何Java类，对象等，运用起来十分便当。能够把Session看做是一个Java容器类。</p>
+<p>​     <strong>②隐私策略的不同（Cookie存储在客户端阅读器中，Session存储在服务器上）</strong></p>
+<p>​     Cookie存储在客户端阅读器中，对客户端是可见的，客户端的一些程序可能会窥探、复制以至修正Cookie中的内容。而Session存储在服务器上，对客户端是透明的，不存在敏感信息泄露的风险。</p>
+<p>​     假如选用Cookie，比较好的方法是，敏感的信息如账号密码等尽量不要写到Cookie中。最好是像Google、Baidu那样将Cookie信息加密，提交到服务器后再进行解密，保证Cookie中的信息只要本人能读得懂。而假如选择Session就省事多了，反正是放在服务器上，Session里任何隐私都能够有效的保护。</p>
+<p>​     <strong>③有效期不同（Cookie可设长时间，Session关闭浏览器就失效）</strong></p>
+<p>​     使用过Google的人都晓得，假如登录过Google，则Google的登录信息长期有效。用户不用每次访问都重新登录，Google会持久地记载该用户的登录信息。要到达这种效果，运用Cookie会是比较好的选择。只需要设置Cookie的过期时间属性为一个很大很大的数字。</p>
+<p>​     由于Session依赖于名为JSESSIONID的Cookie，而Cookie JSESSIONID的过期时间默许为–1，只需关闭了阅读器该Session就会失效，因而Session不能完成信息永世有效的效果。运用URL地址重写也不能完成。而且假如设置Session的超时时间过长，服务器累计的Session就会越多，越容易招致内存溢出。(这时使用Local Storage本地存储)</p>
+<p>​     <strong>④服务器压力不同（Cookie压力小于Session）</strong></p>
+<p>​     Session是保管在服务器端，每个用户都会产生一个Session。假如并发访问的用户十分多，会产生十分多的Session，</p>
+<p>耗费大量的内存。因而像Google、Baidu、Sina这样并发访问量极高的网站，是不太可能运用Session来追踪客户会话的。</p>
+<p>​     而Cookie保管在客户端，不占用服务器资源。假如并发阅读的用户十分多，Cookie是很好的选择。关于Google、Baidu、Sina来说，Cookie或许是唯一的选择。</p>
+<p>​     <strong>⑤存储大小不同</strong></p>
+<p>​     单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</p>
+<p>​     <strong>⑤浏览器支持的不同</strong></p>
+<p>​     Cookie是需要客户端浏览器支持的。假如客户端禁用了Cookie，或者不支持Cookie，则会话跟踪会失效。关于WAP上的应用，常规的Cookie就派不上用场了。</p>
+<p>​     假如客户端浏览器不支持Cookie，需要运用Session以及URL地址重写。需要注意的是一切的用到Session程序的URL都要进行URL地址重写，否则Session会话跟踪还会失效。关于WAP应用来说，Session+URL地址重写或许是它唯一的选择。</p>
+<p>​     假如客户端支持Cookie，则Cookie既能够设为本浏览器窗口以及子窗口内有效（把过期时间设为–1），也能够设为一切阅读器窗口内有效（把过期时间设为某个大于0的整数）。但Session只能在本阅读器窗口以及其子窗口内有效。假如两个浏览器窗口互不相干，它们将运用两个不同的Session。（IE8下不同窗口Session相干）</p>
+<p>​     <strong>⑥跨域支持上的不同</strong></p>
+<p>​     Cookie支持跨域名访问，例如将domain属性设置为“.biaodianfu.com”，则以“.biaodianfu.com”为后缀的一切域名均能够访问该Cookie。跨域名Cookie如今被普遍用在网络中，例如Google、Baidu、Sina等。而Session则不会支持跨域名访问。Session仅在他所在的域名内有效。</p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>仅运用Cookie或者仅运用Session可能完成不了理想的效果。这时应该尝试一下同时运用Cookie与Session。Cookie与Session的搭配运用在实践项目中会完成很多意想不到的效果。</p>
+<p><strong>将登陆信息等重要信息存放为Session，其他信息如果需要保留，可以放在Cookie中</strong>。</p>
+<p>参考博客：<a href="https://blog.csdn.net/hj7jay/article/details/51198139" target="_blank" rel="noopener">https://blog.csdn.net/hj7jay/article/details/51198139</a></p>
 
       
     </div>
@@ -445,13 +463,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+            <a href="/tags/cookie/" rel="tag"><i class="fa fa-tag"></i> cookie</a>
           
-            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            <a href="/tags/session/" rel="tag"><i class="fa fa-tag"></i> session</a>
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
-          
-            <a href="/tags/二叉树/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
+            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
           
         </div>
       
@@ -464,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/08/Python排序算法之冒泡排序/" rel="next" title="Python排序算法之冒泡排序">
-                <i class="fa fa-chevron-left"></i> Python排序算法之冒泡排序
+              <a href="/2018/05/09/面向对象与面向过程/" rel="next" title="面向对象与面向过程">
+                <i class="fa fa-chevron-left"></i> 面向对象与面向过程
               </a>
             
           </div>
@@ -473,10 +489,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/09/面向对象与面向过程/" rel="prev" title="面向对象与面向过程">
-                面向对象与面向过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -635,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">1.1.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Cookie机制"><span class="nav-number">1.</span> <span class="nav-text">一、Cookie机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Session机制"><span class="nav-number">2.</span> <span class="nav-text">二、Session机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Cookie与Session的区别："><span class="nav-number">3.</span> <span class="nav-text">三、Cookie与Session的区别：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number"></span> <span class="nav-text">四、总结</span></a></div>
             
 
           </div>

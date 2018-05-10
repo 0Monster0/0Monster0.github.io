@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-09T08:11:37.900Z</updated>
+  <updated>2018-05-10T08:20:29.844Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cookie与Session介绍与区别</title>
+    <link href="http://yoursite.com/2018/05/10/Cookie%E4%B8%8ESession%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2018/05/10/Cookie与Session介绍与区别/</id>
+    <published>2018-05-10T08:07:22.000Z</published>
+    <updated>2018-05-10T08:20:29.844Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、Cookie机制"><a href="#一、Cookie机制" class="headerlink" title="一、Cookie机制"></a>一、Cookie机制</h3><p>​     <strong>Cookies</strong>是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。IETF RFC 2965 HTTP State Management Mechanism 是通用cookie规范。网络服务器用HTTP头向客户端发送Cookies，在客户终端，浏览器解析这些Cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些Cookies。</p><p>​     具体来说Cookie机制采用的是在客户端保持状态的方案。它是在用户端的会话状态的存贮机制，他需要用户打开客户端的Cookie支持。Cookie的作用就是为了解决HTTP协议无状态的缺陷所作的努力。（HTTP无状态协议是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。）</p><p>​     正统的Cookie分发是通过扩展HTTP协议来实现的，服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的Cookie。然而纯粹的客户端脚本如JavaScript也可以生成Cookie。而Cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器的。浏览器检查所有存储的Cookie，如果某个Cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该Cookie附在请求资源的HTTP请求头上发送给服务器。</p><p>​     Cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。若不设置过期时间，则表示这个Cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。这种生命期为浏览器会话期的Cookie被称为会话Cookie。会话Cookie一般不存储在硬盘上而是保存在内存里，当然这种行为并不是规范规定的。若设置了过期时间，浏览器就会把Cookie保存到硬盘上，关闭后再次打开浏览器，这些Cookie仍然有效直到超过设定的过期时间。存储在硬盘上的Cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。</p><p>​     而Session机制采用的是一种在服务器端保持状态的解决方案。同时我们也看到，由于采用服务器端保持状态的方案在客户端也需要保存一个标识，所以Session机制可能需要借助于Cookie机制来达到保存标识的目的。而Session提供了方便管理全局变量的方式。</p><p>​     Session是针对每一个用户的，变量的值保存在服务器上，用一个Session ID来区分是哪个用户Session变量,这个值是通过用户的浏览器在访问的时候返回给服务器，当客户禁用Cookie时，这个值也可能设置为由get来返回给服务器。</p><p>​     就安全性来说：当你访问一个使用Session 的站点，同时在自己机子上建立一个Cookie，建议在服务器端的Session机制更安全些，因为它不会任意读取客户存储的信息。</p><h3 id="二、Session机制"><a href="#二、Session机制" class="headerlink" title="二、Session机制"></a>二、Session机制</h3><p>​     <strong>Session</strong>机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。</p><p>​     当程序需要为某个客户端的请求创建一个Session时，服务器首先检查这个客户端的请求里是否已包含了一个Session标识（称为Session id），如果已包含则说明以前已经为此客户端创建过Session，服务器就按照Session id把这个session检索出来使用，如果客户端请求不包含Session id，则为此客户端创建一个Session并且生成一个与此Session相关联的Session id，Session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。</p><p>​     保存这个Session id的方式可以采用Cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发挥给服务器。一般这个Cookie的名字都是类似于SEEESIONID。但Cookie可以被人为的禁止，则必须有其他机制以便在Cookie被禁止时仍然能够把Session id传递回服务器。</p><p>​     经常使用的一种技术叫URL重写，就是把Session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把Session id传递回服务器。</p><p>​     Cookie与Session都能够进行会话跟踪，但是完成的原理不太一样。普通状况下二者均能够满足需求，但有时候不能够运用Cookie，有时候不能够运用Session。下面经过比拟阐明二者的特性以及适用的场所。</p><h3 id="三、Cookie与Session的区别："><a href="#三、Cookie与Session的区别：" class="headerlink" title="三、Cookie与Session的区别："></a>三、Cookie与Session的区别：</h3><p>​     <strong>①存取方式的不同（Cookie只能保存ASCII，Session可以存任意数据类型）</strong></p><p>​     Cookie中只能保管ASCII字符串，假如需求存取Unicode字符或者二进制数据，需求先进行编码。Cookie中也不能直接存取Java对象。若要存储略微复杂的信息，运用Cookie是比拟艰难的。</p><p>​     而Session中能够存取任何类型的数据，包括而不限于String、Integer、List、Map等。Session中也能够直接保管Java Bean乃至任何Java类，对象等，运用起来十分便当。能够把Session看做是一个Java容器类。</p><p>​     <strong>②隐私策略的不同（Cookie存储在客户端阅读器中，Session存储在服务器上）</strong></p><p>​     Cookie存储在客户端阅读器中，对客户端是可见的，客户端的一些程序可能会窥探、复制以至修正Cookie中的内容。而Session存储在服务器上，对客户端是透明的，不存在敏感信息泄露的风险。</p><p>​     假如选用Cookie，比较好的方法是，敏感的信息如账号密码等尽量不要写到Cookie中。最好是像Google、Baidu那样将Cookie信息加密，提交到服务器后再进行解密，保证Cookie中的信息只要本人能读得懂。而假如选择Session就省事多了，反正是放在服务器上，Session里任何隐私都能够有效的保护。</p><p>​     <strong>③有效期不同（Cookie可设长时间，Session关闭浏览器就失效）</strong></p><p>​     使用过Google的人都晓得，假如登录过Google，则Google的登录信息长期有效。用户不用每次访问都重新登录，Google会持久地记载该用户的登录信息。要到达这种效果，运用Cookie会是比较好的选择。只需要设置Cookie的过期时间属性为一个很大很大的数字。</p><p>​     由于Session依赖于名为JSESSIONID的Cookie，而Cookie JSESSIONID的过期时间默许为–1，只需关闭了阅读器该Session就会失效，因而Session不能完成信息永世有效的效果。运用URL地址重写也不能完成。而且假如设置Session的超时时间过长，服务器累计的Session就会越多，越容易招致内存溢出。(这时使用Local Storage本地存储)</p><p>​     <strong>④服务器压力不同（Cookie压力小于Session）</strong></p><p>​     Session是保管在服务器端，每个用户都会产生一个Session。假如并发访问的用户十分多，会产生十分多的Session，</p><p>耗费大量的内存。因而像Google、Baidu、Sina这样并发访问量极高的网站，是不太可能运用Session来追踪客户会话的。</p><p>​     而Cookie保管在客户端，不占用服务器资源。假如并发阅读的用户十分多，Cookie是很好的选择。关于Google、Baidu、Sina来说，Cookie或许是唯一的选择。</p><p>​     <strong>⑤存储大小不同</strong></p><p>​     单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</p><p>​     <strong>⑤浏览器支持的不同</strong></p><p>​     Cookie是需要客户端浏览器支持的。假如客户端禁用了Cookie，或者不支持Cookie，则会话跟踪会失效。关于WAP上的应用，常规的Cookie就派不上用场了。</p><p>​     假如客户端浏览器不支持Cookie，需要运用Session以及URL地址重写。需要注意的是一切的用到Session程序的URL都要进行URL地址重写，否则Session会话跟踪还会失效。关于WAP应用来说，Session+URL地址重写或许是它唯一的选择。</p><p>​     假如客户端支持Cookie，则Cookie既能够设为本浏览器窗口以及子窗口内有效（把过期时间设为–1），也能够设为一切阅读器窗口内有效（把过期时间设为某个大于0的整数）。但Session只能在本阅读器窗口以及其子窗口内有效。假如两个浏览器窗口互不相干，它们将运用两个不同的Session。（IE8下不同窗口Session相干）</p><p>​     <strong>⑥跨域支持上的不同</strong></p><p>​     Cookie支持跨域名访问，例如将domain属性设置为“.biaodianfu.com”，则以“.biaodianfu.com”为后缀的一切域名均能够访问该Cookie。跨域名Cookie如今被普遍用在网络中，例如Google、Baidu、Sina等。而Session则不会支持跨域名访问。Session仅在他所在的域名内有效。</p><h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>仅运用Cookie或者仅运用Session可能完成不了理想的效果。这时应该尝试一下同时运用Cookie与Session。Cookie与Session的搭配运用在实践项目中会完成很多意想不到的效果。</p><p><strong>将登陆信息等重要信息存放为Session，其他信息如果需要保留，可以放在Cookie中</strong>。</p><p>参考博客：<a href="https://blog.csdn.net/hj7jay/article/details/51198139" target="_blank" rel="noopener">https://blog.csdn.net/hj7jay/article/details/51198139</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、Cookie机制&quot;&gt;&lt;a href=&quot;#一、Cookie机制&quot; class=&quot;headerlink&quot; title=&quot;一、Cookie机制&quot;&gt;&lt;/a&gt;一、Cookie机制&lt;/h3&gt;&lt;p&gt;​     &lt;strong&gt;Cookies&lt;/strong&gt;是服务器在本地机
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="cookie" scheme="http://yoursite.com/tags/cookie/"/>
+    
+      <category term="session" scheme="http://yoursite.com/tags/session/"/>
+    
+      <category term="http" scheme="http://yoursite.com/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象与面向过程</title>
+    <link href="http://yoursite.com/2018/05/09/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/05/09/面向对象与面向过程/</id>
+    <published>2018-05-09T09:50:41.000Z</published>
+    <updated>2018-05-09T10:18:28.589Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h2><p>面向过程就是<strong>分析出解决问题所需要的步骤</strong>，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。 </p><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p><img src="http://p8f1k31v1.bkt.clouddn.com/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.jpg" alt="一张图理解面向对象"></p><p>面向对象是把<strong>构成问题事务分解成各个对象</strong>，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。</p><h3 id="三大特征："><a href="#三大特征：" class="headerlink" title="三大特征："></a>三大特征：</h3><h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><p>所谓封装，就是将客观事物封装成抽象的类，并且类可以把数据和方法让可信的类或者对象进行操作，对不可信的类或者对象进行隐藏。类就是封装数据和操作这些数据代码的逻辑实体。在一个类的内部，某些属性和方法是私有的，不能被外界所访问。通过这种方式，对象对内部数据进行了不同级别的访问控制，就避免了程序中的无关部分的意外改变或错误改变了对象的私有部分。</p><h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>继承有这样一种能力，就是能使用现有的类的所有功能，并无须重新编写原来的这些类的基础上对这些功能进行扩展。通过继承创建的新类称为子类或派生类，被继承的称为基类。继承有两种，一种是实现继承，另外一种是接口继承。实现继承可以直接使用基类的属性和方法而无需额外编码，接口继承是指使用属性和方法的名称，但是子必须提供实现的能力。 </p><h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p>所谓多态就是对一个实例的相同方法在不同的情形下有不同的表现形式。多态机制使得不同内部结构的对象可以共享相同的外部接口，这就意味着，虽然不同的类的内部操作不同，但可以通过一个公共的类，它们可以通过相同的方式予以调用。</p><h3 id="五大原则"><a href="#五大原则" class="headerlink" title="五大原则"></a>五大原则</h3><h4 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h4><p>指一个类的功能要单一，不能包罗万象。</p><h4 id="替换原则"><a href="#替换原则" class="headerlink" title="替换原则"></a>替换原则</h4><p>指子类可以替换父类并出现在父类能出现的任何地方。比如公司搞年会，所有员工都能参与抽奖，不管是新员工，还是老员工。</p><h4 id="开放封闭原则"><a href="#开放封闭原则" class="headerlink" title="开放封闭原则"></a>开放封闭原则</h4><p>一个模块在更改性方面应该是封闭的，在扩展性方面应该是开放的。比如一个网络模块，原先只有服务端的功能，现在我要加入客户端的功能。</p><h4 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h4><p>就是要依赖于抽象，不要依赖于具体。简单的说，就是要对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块之间的耦合。</p><p>在面向过程开发中，上层依赖下层，当下层剧烈的发生变化时，上层也要发生变化，这样就导致了模块之间的耦合性太高，复用性降低，从而大大的增加了开发的成本。</p><p>然而面向对象就很好的解决了这个问题，一般情况下，抽象变化的几率很小，让用户程序依赖于抽象，实现的细节也依赖于抽象。即使实现细节不断的变化，只要抽象不变，客户端程序就不用去变化，这就大大降低了客户程序域实现细节的耦合度。</p><p>比如一个合资汽车公司现在要求开发一个自动驾驶系统，只要汽车上安装上这个系统，就可以实现无人驾驶，该系统可以在福特车系列和本田车系列上使用。</p><h4 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h4><p>不同的模块要通过抽象接口隔离开，而不是通过具体的类强耦合。</p><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>例如五子棋：</p><p><strong>面向过程</strong>的设计思路就是首先分析问题的步骤：</p><p>1、开始游戏</p><p>2、黑子先走</p><p>3、绘制画面</p><p>4、判断输赢</p><p>5、轮到白子</p><p>6、绘制画面</p><p>7、判断输赢</p><p>8、返回步骤2</p><p>9、输出最后结果</p><p>把上面每个步骤用分别的函数来实现，问题就解决了。</p><p><strong>面向对象</strong>的设计则是从另外的思路来解决问题：</p><p>整个五子棋可以分为：</p><p> 1、黑白双方，这两方的行为是一模一样的</p><p>2、棋盘系统，负责绘制画面</p><p>3、规则系统，负责判定诸如犯规、输赢等。</p><p>第一类对象（玩家对象）负责接受用户输入，并告知第二类对象（棋盘对象）棋子布局的变化，棋盘对象接收到了棋子的变化就要负责在屏幕上面显示出这种变化，同时利用第三类对象（规则系统）来对棋局进行判定。</p><p>可以明显地看出，面向对象是以<strong>功能</strong>来划分问题，而不是<strong>步骤</strong>。同样是绘制棋局，这样的行为在面向过程的设计中分散在了总多步骤中，很可能出现不同的绘制版本，因为通常设计人员会考虑到实际情况进行各种各样的简化。而面向对象的设计中，绘图只可能在棋盘对象中出现，从而保证了绘图的统一。</p><p>功能上的统一保证了面向对象设计的可扩展性。比如我要加入悔棋的功能，如果要改动面向过程的设计，那么从输入到判断到显示这一连串的步骤都要改动，甚至步骤之间的循序都要进行大规模调整。如果是面向对象的话，只用改动棋盘对象就行了，棋盘系统保存了黑白双方的棋谱，简单回溯就可以了，而显示和规则判断则不用顾及，同时整个对对象功能的调用顺序都没有变化，改动只是局部的。</p><p>再比如我要把这个五子棋游戏改为围棋游戏，如果你是面向过程设计，那么五子棋的规则就分布在了你的程序的每一个角落，要改动还不如重写。但是如果你当初就是面向对象的设计，那么你只用改动规则对象就可以了，五子棋和围棋的区别不就是规则吗？（当然棋盘大小好像也不一样，但是你会觉得这是一个难题吗？直接在棋盘对象中进行一番小改动就可以了。）而下棋的大致步骤从面向对象的角度来看没有任何变化。</p><p>当然，要达到改动只是局部的需要设计的人有足够的经验，使用对象不能保证你的程序就是面向对象，初学者或者很蹩脚的程序员很可能以面向对象之虚而行面向过程之实，这样设计出来的所谓面向对象的程序很难有良好的可移植性和可扩展性。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;面向过程&quot;&gt;&lt;a href=&quot;#面向过程&quot; class=&quot;headerlink&quot; title=&quot;面向过程&quot;&gt;&lt;/a&gt;面向过程&lt;/h2&gt;&lt;p&gt;面向过程就是&lt;strong&gt;分析出解决问题所需要的步骤&lt;/strong&gt;，然后用函数把这些步骤一步一步实现，使用的时候一个一
+      
+    
+    </summary>
+    
+      <category term="编程概念" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5/"/>
+    
+    
+      <category term="面向对象" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+      <category term="面向过程" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode 笔记 110 - Balanced Binary Tree</title>
